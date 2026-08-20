@@ -126,19 +126,6 @@
   .hero-cred b{color:var(--smoke); font-weight:700;}
   .hero-cred .dot{color:var(--line-strong);}
 
-  /* features */
-  .features-grid{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:22px;}
-  .feature-card{
-    background:var(--panel); border:1px solid var(--line); border-radius:16px;
-    padding:28px 24px; display:flex; flex-direction:column; gap:16px;
-  }
-  .feature-icon{
-    width:44px; height:44px; border-radius:12px; background:var(--accent-soft); color:var(--accent);
-    display:flex; align-items:center; justify-content:center;
-  }
-  .feature-card h3{font-size:17px; font-weight:700;}
-  .feature-card p{font-size:14.5px; color:var(--smoke); line-height:1.6;}
-
   /* testimonials */
   .testi-section{background:var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
   .testi-grid{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:22px;}
@@ -230,7 +217,6 @@
   footer .wrap{padding-top:0; padding-bottom:36px;}
 
   @media (max-width:980px){
-    .features-grid{grid-template-columns:1fr 1fr;}
     .testi-grid{grid-template-columns:1fr;}
     .pricing-grid{grid-template-columns:1fr 1fr;}
     .contact-grid{grid-template-columns:1fr; gap:40px;}
@@ -238,7 +224,6 @@
   @media (max-width:720px){
     .nav-links{display:none;}
     .section{padding:80px 20px;}
-    .features-grid{grid-template-columns:1fr;}
     .pricing-grid{grid-template-columns:1fr;}
     .field-row{grid-template-columns:1fr;}
     .hero{padding:100px 20px 72px;}
@@ -250,7 +235,6 @@
   <div class="nav-inner">
     <a href="#top" class="logo"><span class="a">STCK</span><span class="b">JACK</span></a>
     <ul class="nav-links">
-      <li><a href="#features">Why Stackjack</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -284,46 +268,6 @@
     </div>
   </div>
 </header>
-
-<section class="section" id="features">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Why Stackjack</span>
-      <h2>Built For Artists Who Need To Move Fast</h2>
-      <p>No red tape, no major-label markup — just beats that are ready to record on the moment you check out.</p>
-    </div>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 21L12 18.5L17 21L15.5 12.5"/></svg>
-        </div>
-        <h3>Industry-Proven Sound</h3>
-        <p>Placements with King Von, Sada Baby, WhiteSosa, BigBabyGucci and more national acts.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 12l-8 8-9-9V4h7l10 10z"/><circle cx="7.5" cy="7.5" r="1.4" fill="currentColor" stroke="none"/></svg>
-        </div>
-        <h3>Low, Artist-Friendly Pricing</h3>
-        <p>Pro-quality instrumentals without the major-label price tag attached.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke-linejoin="round"/></svg>
-        </div>
-        <h3>Instant Digital Delivery</h3>
-        <p>Files land in your inbox the moment your order clears — no waiting around.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg>
-        </div>
-        <h3>Licenses For Every Budget</h3>
-        <p>From MP3 leases to full exclusive ownership — pick what fits your session.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="section testi-section">
   <div class="wrap">
