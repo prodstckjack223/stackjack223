@@ -92,6 +92,7 @@
   .nav-links{display:flex; align-items:center; gap:32px; list-style:none; margin:0; padding:0;}
   .nav-links a{color:var(--smoke); text-decoration:none; font-size:14px; font-weight:600;}
   .nav-links a:hover{color:var(--paper);}
+  .nav-ig{display:inline-flex; align-items:center; gap:6px;}
   .nav-right{display:flex; align-items:center; gap:24px;}
   .nav-toggle{display:none; background:none; border:none; color:var(--paper); padding:6px;}
 
@@ -125,19 +126,6 @@
   }
   .hero-cred b{color:var(--smoke); font-weight:700;}
   .hero-cred .dot{color:var(--line-strong);}
-
-  /* testimonials */
-  .testi-section{background:var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .testi-grid{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:22px;}
-  .testi-card{
-    background:var(--card); border:1px solid var(--line); border-radius:16px;
-    padding:30px 26px; display:flex; flex-direction:column; gap:18px;
-  }
-  .testi-mark{font-family:var(--disp); font-size:36px; color:var(--accent); line-height:1;}
-  .testi-quote{font-size:15.5px; font-style:italic; color:var(--smoke); line-height:1.6;}
-  .testi-who{display:flex; flex-direction:column; gap:2px; padding-top:8px; border-top:1px solid var(--line);}
-  .testi-name{font-weight:700; font-size:14px; color:var(--paper);}
-  .testi-role{font-size:12.5px; color:var(--ash);}
 
   /* pricing */
   .pricing-grid{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:20px;}
@@ -217,7 +205,6 @@
   footer .wrap{padding-top:0; padding-bottom:36px;}
 
   @media (max-width:980px){
-    .testi-grid{grid-template-columns:1fr;}
     .pricing-grid{grid-template-columns:1fr 1fr;}
     .contact-grid{grid-template-columns:1fr; gap:40px;}
   }
@@ -235,6 +222,12 @@
   <div class="nav-inner">
     <a href="#top" class="logo"><span class="a">STCK</span><span class="b">JACK</span></a>
     <ul class="nav-links">
+      <li>
+        <a href="https://www.instagram.com/stckjack" target="_blank" rel="noopener" class="nav-ig">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+          Stack
+        </a>
+      </li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -268,41 +261,6 @@
     </div>
   </div>
 </header>
-
-<section class="section testi-section">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">What Artists Say</span>
-      <h2>Straight From The Booth</h2>
-    </div>
-    <div class="testi-grid">
-      <div class="testi-card">
-        <div class="testi-mark">&ldquo;</div>
-        <p class="testi-quote">[Add a quote from an artist you've worked with]</p>
-        <div class="testi-who">
-          <span class="testi-name">[Artist Name]</span>
-          <span class="testi-role">Independent Recording Artist</span>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-mark">&ldquo;</div>
-        <p class="testi-quote">[Add a quote from an artist you've worked with]</p>
-        <div class="testi-who">
-          <span class="testi-name">[Artist Name]</span>
-          <span class="testi-role">Unsigned Rapper</span>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-mark">&ldquo;</div>
-        <p class="testi-quote">[Add a quote from an artist you've worked with]</p>
-        <div class="testi-who">
-          <span class="testi-name">[Artist Name]</span>
-          <span class="testi-role">Label A&amp;R</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="section" id="pricing">
   <div class="wrap">
