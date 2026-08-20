@@ -291,6 +291,18 @@
       <p>Every instrumental in one list. Pick one and hit buy — license options are available at checkout.</p>
     </div>
     <div class="beats-list">
+      <!--
+        ADD A BEAT: copy one .beat-row block (from <div class="beat-row"> to
+        its closing </div>) and edit these five spots:
+          1. beat-row-title   -> the beat's name
+          2. beat-row-tags    -> genre · BPM · key
+          3. beat-row-price   -> what shows in the list
+          4. data-beat        -> same name as the title (used if checkout isn't set yet)
+          5. data-checkout    -> paste a Stripe Payment Link / Gumroad / Payhip URL here
+                                 for that beat. Leave it "" and Buy falls back to the
+                                 contact form until you add one.
+        Paste new blocks in any order — nothing else needs updating.
+      -->
       <div class="beat-row">
         <div class="beat-row-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 7.5L18 12L9 16.5V7.5Z" fill="currentColor"/></svg></div>
         <div class="beat-row-info">
@@ -298,7 +310,7 @@
           <span class="beat-row-tags">Trap &middot; 140 BPM &middot; F Minor</span>
         </div>
         <span class="beat-row-price">From $20</span>
-        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="Glass City">Buy</button>
+        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="Glass City" data-checkout="">Buy</button>
       </div>
       <div class="beat-row">
         <div class="beat-row-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 7.5L18 12L9 16.5V7.5Z" fill="currentColor"/></svg></div>
@@ -307,7 +319,7 @@
           <span class="beat-row-tags">R&amp;B / Trap &middot; 128 BPM &middot; C Minor</span>
         </div>
         <span class="beat-row-price">From $20</span>
-        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="Midnight Drive">Buy</button>
+        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="Midnight Drive" data-checkout="">Buy</button>
       </div>
       <div class="beat-row">
         <div class="beat-row-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 7.5L18 12L9 16.5V7.5Z" fill="currentColor"/></svg></div>
@@ -316,7 +328,7 @@
           <span class="beat-row-tags">Drill &middot; 145 BPM &middot; G Minor</span>
         </div>
         <span class="beat-row-price">From $20</span>
-        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="No Ceilings">Buy</button>
+        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="No Ceilings" data-checkout="">Buy</button>
       </div>
       <div class="beat-row">
         <div class="beat-row-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 7.5L18 12L9 16.5V7.5Z" fill="currentColor"/></svg></div>
@@ -325,7 +337,7 @@
           <span class="beat-row-tags">Dark Trap &middot; 150 BPM &middot; A Minor</span>
         </div>
         <span class="beat-row-price">From $20</span>
-        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="Static">Buy</button>
+        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="Static" data-checkout="">Buy</button>
       </div>
       <div class="beat-row">
         <div class="beat-row-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 7.5L18 12L9 16.5V7.5Z" fill="currentColor"/></svg></div>
@@ -334,7 +346,7 @@
           <span class="beat-row-tags">Melodic Rap &middot; 132 BPM &middot; D Minor</span>
         </div>
         <span class="beat-row-price">From $20</span>
-        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="Halo">Buy</button>
+        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="Halo" data-checkout="">Buy</button>
       </div>
       <div class="beat-row">
         <div class="beat-row-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 7.5L18 12L9 16.5V7.5Z" fill="currentColor"/></svg></div>
@@ -343,7 +355,7 @@
           <span class="beat-row-tags">Boom Bap &middot; 90 BPM &middot; E Minor</span>
         </div>
         <span class="beat-row-price">From $20</span>
-        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="Concrete">Buy</button>
+        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="Concrete" data-checkout="">Buy</button>
       </div>
     </div>
   </div>
@@ -562,6 +574,12 @@
   // Beat list "Buy" -> scroll to form + drop the beat name into the message
   document.querySelectorAll('.js-buy-track').forEach(function(btn){
     btn.addEventListener('click', function(){
+      var checkoutUrl = btn.getAttribute('data-checkout');
+      if (checkoutUrl) {
+        window.location.href = checkoutUrl;
+        return;
+      }
+      // No checkout link set for this beat yet -> fall back to the contact form.
       var beat = btn.getAttribute('data-beat');
       var message = document.getElementById('f-message');
       if (!message.value) {
