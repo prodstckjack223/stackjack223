@@ -112,6 +112,11 @@
   .hero-headline .q{color:var(--ash); font-size:.55em; vertical-align:.28em;}
   .hero-headline .hit{color:var(--accent);}
   .hero-sub{font-size:18px; line-height:1.6; color:var(--smoke); max-width:560px;}
+  .hero-sub-lead{
+    display:inline-block; margin-bottom:6px;
+    font-family:var(--disp); font-size:clamp(26px, 3.6vw, 36px); font-weight:700;
+    color:var(--paper); line-height:1.15;
+  }
   .hero-ctas{display:flex; align-items:center; gap:18px; flex-wrap:wrap; justify-content:center; margin-top:6px;}
   .hero-cred{
     display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:center;
@@ -264,7 +269,7 @@
     <h1 class="hero-headline">
       <span class="q">&ldquo;</span>Ayo Turn That Up <span class="hit">Stack</span><span class="q">&rdquo;</span>
     </h1>
-    <p class="hero-sub">Premium Beats.<br>Industry-proven sound, priced so you can actually afford to cook.</p>
+    <p class="hero-sub"><span class="hero-sub-lead">Premium Beats.</span><br>Industry-proven sound, priced so you can actually afford to cook.</p>
     <div class="hero-ctas">
       <a href="#pricing" class="btn btn-primary">Buy Beats &mdash; From $19.99</a>
       <a href="#faq" class="btn btn-ghost">Got Questions?</a>
