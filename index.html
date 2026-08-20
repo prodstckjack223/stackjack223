@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stackjack Beats</title>
+<meta name="description" content="Trap, drill &amp; R&amp;B beats for artists, rappers, singers and labels. Low prices, industry-proven sound.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap">
+<style>
+  :root{
+    --ink:#0b0b0d;
+    --panel:#131316;
+    --card:#1a1a1e;
+    --card-hover:#1f1f24;
+    --line:rgba(255,255,255,.09);
+    --line-strong:rgba(255,255,255,.16);
+    --paper:#f5f4f2;
+    --smoke:#a8a6ac;
+    --ash:#716f77;
+    --ember:#f4740a;
+    --ember-soft:rgba(244,116,10,.14);
+    --on-ember:#170d04;
+    --success:#3ecf8e;
+    --error:#ff6a5c;
+    --disp:'Space Grotesk',system-ui,sans-serif;
+    --body:'Manrope',system-ui,sans-serif;
+    --mono:'Space Mono',ui-monospace,monospace;
+    --max:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:var(--body);
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+  h1,h2,h3{font-family:var(--disp); margin:0; text-wrap:balance;}
+  p{margin:0;}
+  a{color:var(--ember);}
+  img,svg{display:block; max-width:100%;}
+  button{font-family:inherit;}
+  ::selection{background:var(--ember); color:var(--on-ember);}
+  :focus-visible{outline:2px solid var(--ember); outline-offset:3px; border-radius:4px;}
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ember);
+    font-weight:700;
+  }
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
+  .section{padding:112px 24px;}
+  .section-head{display:flex; flex-direction:column; gap:12px; max-width:640px; margin-bottom:56px;}
+  .section-head p{color:var(--smoke); font-size:16px; line-height:1.6;}
+
+  /* buttons */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    border-radius:999px; font-weight:800; font-size:14px; letter-spacing:.01em;
+    padding:14px 26px; border:1px solid transparent; cursor:pointer;
+    text-decoration:none; white-space:nowrap;
+    transition:transform .15s ease, filter .15s ease, border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .btn-primary{background:var(--ember); color:var(--on-ember);}
+  .btn-primary:hover{filter:brightness(1.1); transform:translateY(-1px);}
+  .btn-ghost{background:transparent; color:var(--paper); border-color:var(--line-strong);}
+  .btn-ghost:hover{border-color:var(--ember); color:var(--ember);}
+  .btn-sm{padding:10px 20px; font-size:13px;}
+  .btn-block{width:100%;}
+  .btn[disabled]{opacity:.6; cursor:not-allowed; transform:none !important;}
+
+  /* nav */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px; background:rgba(11,11,13,.78); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{max-width:var(--max); margin:0 auto; width:100%; display:flex; align-items:center; justify-content:space-between;}
+  .logo{font-family:var(--disp); font-weight:700; font-size:20px; letter-spacing:.03em; text-decoration:none;}
+  .logo .a{color:var(--paper);}
+  .logo .b{color:var(--ember);}
+  .nav-links{display:flex; align-items:center; gap:32px; list-style:none; margin:0; padding:0;}
+  .nav-links a{color:var(--smoke); text-decoration:none; font-size:14px; font-weight:600;}
+  .nav-links a:hover{color:var(--paper);}
+  .nav-right{display:flex; align-items:center; gap:24px;}
+  .nav-toggle{display:none; background:none; border:none; color:var(--paper); padding:6px;}
+
+  /* hero */
+  .hero{
+    position:relative; overflow:hidden;
+    padding:120px 24px 100px;
+    background-image:
+      linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size:44px 44px;
+  }
+  .hero-glow{
+    position:absolute; top:-160px; left:50%; transform:translateX(-50%);
+    width:680px; height:680px; border-radius:50%;
+    background:var(--ember); opacity:.22; filter:blur(150px); pointer-events:none;
+  }
+  .hero-inner{position:relative; max-width:800px; margin:0 auto; text-align:center; display:flex; flex-direction:column; align-items:center; gap:26px;}
+  .hero-badge{
+    display:inline-flex; align-items:center; gap:8px; padding:7px 16px;
+    border:1px solid var(--line-strong); border-radius:999px;
+  }
+  .hero-headline{
+    font-size:clamp(40px, 7.4vw, 84px); font-weight:700; line-height:1.02; letter-spacing:-.01em;
+  }
+  .hero-headline .q{color:var(--ash); font-size:.55em; vertical-align:.28em;}
+  .hero-headline .hit{color:var(--ember);}
+  .hero-sub{font-size:18px; line-height:1.6; color:var(--smoke); max-width:560px;}
+  .hero-ctas{display:flex; align-items:center; gap:18px; flex-wrap:wrap; justify-content:center; margin-top:6px;}
+  .hero-cred{
+    display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:center;
+    font-family:var(--mono); font-size:12.5px; letter-spacing:.03em; color:var(--ash);
+    margin-top:18px; padding-top:22px; border-top:1px solid var(--line); width:100%; max-width:640px;
+  }
+  .hero-cred b{color:var(--smoke); font-weight:700;}
+  .hero-cred .dot{color:var(--line-strong);}
+
+  /* features */
+  .features-grid{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:22px;}
+  .feature-card{
+    background:var(--panel); border:1px solid var(--line); border-radius:16px;
+    padding:28px 24px; display:flex; flex-direction:column; gap:16px;
+  }
+  .feature-icon{
+    width:44px; height:44px; border-radius:12px; background:var(--ember-soft); color:var(--ember);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .feature-card h3{font-size:17px; font-weight:700;}
+  .feature-card p{font-size:14.5px; color:var(--smoke); line-height:1.6;}
+
+  /* testimonials */
+  .testi-section{background:var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .testi-grid{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:22px;}
+  .testi-card{
+    background:var(--card); border:1px solid var(--line); border-radius:16px;
+    padding:30px 26px; display:flex; flex-direction:column; gap:18px;
+  }
+  .testi-mark{font-family:var(--disp); font-size:36px; color:var(--ember); line-height:1;}
+  .testi-quote{font-size:15.5px; font-style:italic; color:var(--smoke); line-height:1.6;}
+  .testi-who{display:flex; flex-direction:column; gap:2px; padding-top:8px; border-top:1px solid var(--line);}
+  .testi-name{font-weight:700; font-size:14px; color:var(--paper);}
+  .testi-role{font-size:12.5px; color:var(--ash);}
+
+  /* pricing */
+  .pricing-grid{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:20px;}
+  .price-card{
+    position:relative; background:var(--panel); border:1px solid var(--line); border-radius:16px;
+    padding:30px 24px; display:flex; flex-direction:column; gap:22px;
+  }
+  .price-card.featured{border-color:var(--ember); background:linear-gradient(180deg, var(--ember-soft), var(--panel) 60%);}
+  .price-tag{
+    position:absolute; top:-13px; left:24px; background:var(--ember); color:var(--on-ember);
+    font-family:var(--mono); font-size:11px; font-weight:700; letter-spacing:.06em;
+    padding:5px 12px; border-radius:999px; text-transform:uppercase;
+  }
+  .price-head h3{font-size:17px; font-weight:700; margin-bottom:6px;}
+  .price-head .note{font-size:13px; color:var(--ash);}
+  .price-amount{font-family:var(--disp); font-size:34px; font-weight:700;}
+  .price-amount span{font-family:var(--body); font-size:14px; color:var(--ash); font-weight:600;}
+  .price-features{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px;}
+  .price-features li{display:flex; align-items:flex-start; gap:9px; font-size:13.5px; color:var(--smoke); line-height:1.5;}
+  .price-features svg{flex-shrink:0; margin-top:2px; color:var(--ember);}
+
+  /* faq */
+  .faq-list{display:flex; flex-direction:column; gap:1px; border:1px solid var(--line); border-radius:16px; overflow:hidden;}
+  .faq-item{background:var(--panel); border-bottom:1px solid var(--line);}
+  .faq-item:last-child{border-bottom:none;}
+  .faq-q{
+    width:100%; text-align:left; background:none; border:none; color:var(--paper);
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:22px 26px; font-size:16px; font-weight:700; cursor:pointer;
+  }
+  .faq-q svg{flex-shrink:0; color:var(--ember); transition:transform .2s ease;}
+  .faq-item[data-open="true"] .faq-q svg{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .25s ease;}
+  .faq-a-inner{padding:0 26px 24px; font-size:14.5px; color:var(--smoke); line-height:1.65; max-width:74ch;}
+
+  /* contact / footer */
+  .contact-section{background:var(--panel); border-top:1px solid var(--line);}
+  .contact-grid{display:grid; grid-template-columns:1fr 1.15fr; gap:64px;}
+  .contact-copy h2{font-size:clamp(26px,3.2vw,34px); margin-bottom:14px;}
+  .contact-copy p{color:var(--smoke); font-size:15.5px; line-height:1.65; margin-bottom:28px; max-width:38ch;}
+  .contact-detail{display:flex; align-items:center; gap:12px; font-size:14px; color:var(--smoke); margin-bottom:14px;}
+  .contact-detail svg{color:var(--ember); flex-shrink:0;}
+  .social-row{display:flex; gap:10px; margin-top:26px;}
+  .social-btn{
+    width:40px; height:40px; border-radius:50%; border:1px solid var(--line-strong);
+    display:flex; align-items:center; justify-content:center; color:var(--smoke); text-decoration:none;
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .social-btn:hover{border-color:var(--ember); color:var(--ember);}
+
+  .form-card{background:var(--card); border:1px solid var(--line); border-radius:18px; padding:32px;}
+  .field{display:flex; flex-direction:column; gap:7px; margin-bottom:18px;}
+  .field label{font-size:13px; font-weight:700; color:var(--smoke);}
+  .field input, .field select, .field textarea{
+    background:var(--ink); border:1px solid var(--line-strong); border-radius:10px;
+    padding:12px 14px; color:var(--paper); font-family:inherit; font-size:14.5px;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--ember); outline:none;}
+  .field textarea{resize:vertical; min-height:100px;}
+  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .form-note{font-size:12.5px; color:var(--ash); margin-top:14px; line-height:1.5;}
+  .form-status{font-size:14px; font-weight:600; margin-top:14px; display:none; padding:12px 14px; border-radius:10px;}
+  .form-status.show{display:block;}
+  .form-status.ok{background:rgba(62,207,142,.12); color:var(--success);}
+  .form-status.err{background:rgba(255,106,92,.12); color:var(--error);}
+  .hp{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;}
+
+  .footer-cta{
+    display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;
+    padding:44px 0; border-bottom:1px solid var(--line);
+  }
+  .footer-cta h3{font-size:clamp(20px,2.4vw,26px); max-width:420px;}
+  .footer-bottom{
+    display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+    padding-top:28px; font-size:12.5px; color:var(--ash);
+  }
+  footer .wrap{padding-top:0; padding-bottom:36px;}
+
+  @media (max-width:980px){
+    .features-grid{grid-template-columns:1fr 1fr;}
+    .testi-grid{grid-template-columns:1fr;}
+    .pricing-grid{grid-template-columns:1fr 1fr;}
+    .contact-grid{grid-template-columns:1fr; gap:40px;}
+  }
+  @media (max-width:720px){
+    .nav-links{display:none;}
+    .section{padding:80px 20px;}
+    .features-grid{grid-template-columns:1fr;}
+    .pricing-grid{grid-template-columns:1fr;}
+    .field-row{grid-template-columns:1fr;}
+    .hero{padding:100px 20px 72px;}
+  }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="logo"><span class="a">STCK</span><span class="b">JACK</span></a>
+    <ul class="nav-links">
+      <li><a href="#features">Why Stackjack</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#pricing" class="btn btn-primary btn-sm">Buy Beats</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="eyebrow" style="padding:0;">Producer &middot; Beatmaker &middot; Tag You Know</span>
+    </div>
+    <h1 class="hero-headline">
+      <span class="q">&ldquo;</span>Ayo Turn That Up <span class="hit">Stack</span><span class="q">&rdquo;</span>
+    </h1>
+    <p class="hero-sub">Premium trap, drill &amp; R&amp;B instrumentals for artists, rappers, singers and labels. Industry-proven sound, priced so you can actually afford to cook.</p>
+    <div class="hero-ctas">
+      <a href="#pricing" class="btn btn-primary">Buy Beats &mdash; From $19.99</a>
+      <a href="#faq" class="btn btn-ghost">Got Questions?</a>
+    </div>
+    <div class="hero-cred">
+      <span>Beats placed with</span>
+      <b>King Von</b><span class="dot">&middot;</span>
+      <b>Sada Baby</b><span class="dot">&middot;</span>
+      <b>WhiteSosa</b><span class="dot">&middot;</span>
+      <b>BigBabyGucci</b><span class="dot">&middot;</span>
+      <span>&amp; more</span>
+    </div>
+  </div>
+</header>
+
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Why Stackjack</span>
+      <h2>Built For Artists Who Need To Move Fast</h2>
+      <p>No red tape, no major-label markup — just beats that are ready to record on the moment you check out.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 21L12 18.5L17 21L15.5 12.5"/></svg>
+        </div>
+        <h3>Industry-Proven Sound</h3>
+        <p>Placements with King Von, Sada Baby, WhiteSosa, BigBabyGucci and more national acts.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 12l-8 8-9-9V4h7l10 10z"/><circle cx="7.5" cy="7.5" r="1.4" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <h3>Low, Artist-Friendly Pricing</h3>
+        <p>Pro-quality instrumentals without the major-label price tag attached.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Instant Digital Delivery</h3>
+        <p>Files land in your inbox the moment your order clears — no waiting around.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg>
+        </div>
+        <h3>Licenses For Every Budget</h3>
+        <p>From MP3 leases to full exclusive ownership — pick what fits your session.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section testi-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">What Artists Say</span>
+      <h2>Straight From The Booth</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-mark">&ldquo;</div>
+        <p class="testi-quote">[Add a quote from an artist you've worked with]</p>
+        <div class="testi-who">
+          <span class="testi-name">[Artist Name]</span>
+          <span class="testi-role">Independent Recording Artist</span>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-mark">&ldquo;</div>
+        <p class="testi-quote">[Add a quote from an artist you've worked with]</p>
+        <div class="testi-who">
+          <span class="testi-name">[Artist Name]</span>
+          <span class="testi-role">Unsigned Rapper</span>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-mark">&ldquo;</div>
+        <p class="testi-quote">[Add a quote from an artist you've worked with]</p>
+        <div class="testi-who">
+          <span class="testi-name">[Artist Name]</span>
+          <span class="testi-role">Label A&amp;R</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Licensing</span>
+      <h2>Buy Beats — Low Prices, No Gatekeeping</h2>
+      <p>Every license includes instant delivery and full access to the catalog. Not sure which one fits? Ask below.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-head">
+          <h3>MP3 Lease</h3>
+          <p class="note">Best for demos &amp; mixtapes</p>
+        </div>
+        <div class="price-amount">$19.99</div>
+        <ul class="price-features">
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Untagged MP3 file</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Up to 100,000 streams</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Non-exclusive rights</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Instant delivery</li>
+        </ul>
+        <button type="button" class="btn btn-ghost btn-block js-buy" data-license="MP3 Lease — $19.99">Get This Beat</button>
+      </div>
+
+      <div class="price-card featured">
+        <span class="price-tag">Most Popular</span>
+        <div class="price-head">
+          <h3>WAV Lease</h3>
+          <p class="note">Best sound quality, non-exclusive</p>
+        </div>
+        <div class="price-amount">$34.99</div>
+        <ul class="price-features">
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Untagged WAV + MP3</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Up to 500,000 streams</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Non-exclusive rights</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Instant delivery</li>
+        </ul>
+        <button type="button" class="btn btn-primary btn-block js-buy" data-license="WAV Lease — $34.99">Get This Beat</button>
+      </div>
+
+      <div class="price-card">
+        <div class="price-head">
+          <h3>Trackout / Stems</h3>
+          <p class="note">For studio mixing &amp; engineers</p>
+        </div>
+        <div class="price-amount">$79.99</div>
+        <ul class="price-features">
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Full trackout stems</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Unlimited streams</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Non-exclusive rights</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Instant delivery</li>
+        </ul>
+        <button type="button" class="btn btn-ghost btn-block js-buy" data-license="Trackout / Stems — $79.99">Get This Beat</button>
+      </div>
+
+      <div class="price-card">
+        <div class="price-head">
+          <h3>Exclusive Rights</h3>
+          <p class="note">100% ownership, beat retired from store</p>
+        </div>
+        <div class="price-amount">$299.99<span>+</span></div>
+        <ul class="price-features">
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Full exclusive ownership</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Beat removed from store</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Unlimited, unrestricted use</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Trackout stems included</li>
+        </ul>
+        <button type="button" class="btn btn-ghost btn-block js-buy" data-license="Exclusive Rights — $299.99+">Get This Beat</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">FAQ</span>
+      <h2>Common Questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item" data-open="false">
+        <button type="button" class="faq-q">What's the difference between a lease and exclusive rights?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">A lease gives you non-exclusive use of a beat up to a set stream/sale cap — other artists can still license the same instrumental. Exclusive rights pull the beat from the store entirely and sell it to you only, with full ownership.</div></div>
+      </div>
+      <div class="faq-item" data-open="false">
+        <button type="button" class="faq-q">Can I monetize my song on Spotify, YouTube, etc.?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Every license — lease or exclusive — includes commercial use rights, so you can release, distribute, and monetize your song on any platform.</div></div>
+      </div>
+      <div class="faq-item" data-open="false">
+        <button type="button" class="faq-q">How fast will I get my files?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Instantly. Once your order is confirmed you'll get a secure download link by email — no waiting on manual delivery.</div></div>
+      </div>
+      <div class="faq-item" data-open="false">
+        <button type="button" class="faq-q">Do you offer refunds?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Because files are delivered digitally, sales are final once a download link is sent. Message me before buying if you want to make sure a beat's the right fit first.</div></div>
+      </div>
+      <div class="faq-item" data-open="false">
+        <button type="button" class="faq-q">Can I get a custom beat made for me?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Absolutely — use the contact form below and let me know the sound you're going for, your budget, and your timeline.</div></div>
+      </div>
+      <div class="faq-item" data-open="false">
+        <button type="button" class="faq-q">Can I negotiate exclusive pricing?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Exclusive pricing depends on the beat and how it's already been used. Send a message with the beat name and I'll get back to you with a quote.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact-section" id="contact">
+  <div class="wrap">
+    <div class="footer-cta">
+      <h3>Ready to cook up your next hit?</h3>
+      <a href="#contact-form" class="btn btn-primary">Get In Touch</a>
+    </div>
+    <div class="contact-grid" style="margin-top:56px;">
+      <div class="contact-copy">
+        <span class="eyebrow">Contact</span>
+        <h2 style="margin-top:12px;">Let's Get You A Beat</h2>
+        <p>Tell me what license you're after or what sound you're going for — I'll follow up within 24 hours with a secure payment link and your files.</p>
+        <div class="contact-detail">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          <a href="mailto:bookings@stckjack.com">bookings@stckjack.com</a>
+        </div>
+        <div class="contact-detail">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+          <span>@stckjack</span>
+        </div>
+        <div class="social-row">
+          <a href="#" class="social-btn" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="YouTube">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5L14.5 12L10 14.5V9.5Z" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="X">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20L10.5 13.5M20 4L13.5 10.5M4 4L20 20"/></svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="TikTok">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16 4c0 2.5 1.8 4.3 4 4.5V12c-1.5 0-2.9-.5-4-1.4V15a5 5 0 1 1-5-5c.3 0 .7 0 1 .1V13a2 2 0 1 0 2 2V4h2Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <form class="form-card" id="contact-form">
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off">
+        <div class="field-row">
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" required autocomplete="email">
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-license">What are you looking for?</label>
+          <select id="f-license" name="license">
+            <option>MP3 Lease — $19.99</option>
+            <option>WAV Lease — $34.99</option>
+            <option>Trackout / Stems — $79.99</option>
+            <option>Exclusive Rights — $299.99+</option>
+            <option>Custom Beat</option>
+            <option>General Question</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-message">Message</label>
+          <textarea id="f-message" name="message" required placeholder="Tell me about the sound you're going for, your budget, or which beat you want..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="f-submit">Send Message</button>
+        <div class="form-status" id="f-status" role="status"></div>
+        <p class="form-note">I'll get back to you within 24 hours with next steps and a secure payment link if you're buying a beat.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>&copy; 2026 Stackjack. All rights reserved.</span>
+      <span>Trap &middot; Drill &middot; R&amp;B Instrumentals</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var btn = item.querySelector('.faq-q');
+    var panel = item.querySelector('.faq-a');
+    btn.addEventListener('click', function(){
+      var isOpen = item.getAttribute('data-open') === 'true';
+      document.querySelectorAll('.faq-item').forEach(function(other){
+        other.setAttribute('data-open', 'false');
+        other.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!isOpen){
+        item.setAttribute('data-open', 'true');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Pricing "Get This Beat" -> scroll to form + preselect license
+  document.querySelectorAll('.js-buy').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var license = btn.getAttribute('data-license');
+      var select = document.getElementById('f-license');
+      for (var i = 0; i < select.options.length; i++) {
+        if (select.options[i].text === license) { select.selectedIndex = i; break; }
+      }
+      document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      document.getElementById('f-name').focus({ preventScroll: true });
+    });
+  });
+
+  // Contact form submission (Formspree)
+  // Replace FORMSPREE_ENDPOINT with your own form endpoint from https://formspree.io
+  var FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+
+  var form = document.getElementById('contact-form');
+  var statusEl = document.getElementById('f-status');
+  var submitBtn = document.getElementById('f-submit');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    if (form._gotcha.value) { return; } // honeypot
+
+    statusEl.className = 'form-status';
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    }).then(function(res){
+      if (res.ok) {
+        statusEl.textContent = "Got it — I'll hit you back within 24 hours.";
+        statusEl.className = 'form-status show ok';
+        form.reset();
+      } else {
+        throw new Error('Form endpoint not configured');
+      }
+    }).catch(function(){
+      statusEl.textContent = 'Something went wrong sending that — email me directly at bookings@stckjack.com instead.';
+      statusEl.className = 'form-status show err';
+    }).finally(function(){
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+    });
+  });
+</script>
+</body>
+</html>
