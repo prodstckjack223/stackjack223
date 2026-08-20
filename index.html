@@ -297,10 +297,10 @@
           1. beat-row-title   -> the beat's name
           2. beat-row-tags    -> genre · BPM · key
           3. beat-row-price   -> what shows in the list
-          4. data-beat        -> same name as the title (used if checkout isn't set yet)
+          4. data-beat        -> same name as the title (used in the email fallback below)
           5. data-checkout    -> paste a Stripe Payment Link / Gumroad / Payhip URL here
-                                 for that beat. Leave it "" and Buy falls back to the
-                                 contact form until you add one.
+                                 for that beat. Leave it "" and Buy opens an email to
+                                 bookings@stckjack.com until you add one.
         Paste new blocks in any order — nothing else needs updating.
       -->
       <div class="beat-row">
@@ -467,13 +467,13 @@
   <div class="wrap">
     <div class="footer-cta">
       <h3>Ready to cook up your next hit?</h3>
-      <a href="#contact-form" class="btn btn-primary">Get In Touch</a>
+      <a href="#beats" class="btn btn-primary">Browse Beats</a>
     </div>
     <div class="contact-grid" style="margin-top:56px;">
       <div class="contact-copy">
-        <span class="eyebrow">Contact</span>
-        <h2 style="margin-top:12px;">Let's Get You A Beat</h2>
-        <p>Tell me what license you're after or what sound you're going for — I'll follow up within 24 hours with a secure payment link and your files.</p>
+        <span class="eyebrow">Custom Beats</span>
+        <h2 style="margin-top:12px;">Request A Custom Beat</h2>
+        <p>Tell me the sound you're going for, your budget, and your timeline — I'll follow up within 24 hours with a quote.</p>
         <div class="contact-detail">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
           <a href="mailto:bookings@stckjack.com">bookings@stckjack.com</a>
@@ -511,21 +511,12 @@
           </div>
         </div>
         <div class="field">
-          <label for="f-license">What are you looking for?</label>
-          <select id="f-license" name="license">
-            <option>MP3 Lease — $20</option>
-            <option>WAV Lease — $30</option>
-            <option>Custom Beats</option>
-            <option>General Question</option>
-          </select>
-        </div>
-        <div class="field">
           <label for="f-message">Message</label>
-          <textarea id="f-message" name="message" required placeholder="Tell me about the sound you're going for, your budget, or which beat you want..."></textarea>
+          <textarea id="f-message" name="message" required placeholder="Tell me about the sound you're going for, your budget, and your timeline..."></textarea>
         </div>
         <button type="submit" class="btn btn-primary btn-block" id="f-submit">Send Message</button>
         <div class="form-status" id="f-status" role="status"></div>
-        <p class="form-note">I'll get back to you within 24 hours with next steps and a secure payment link if you're buying a beat.</p>
+        <p class="form-note">I'll get back to you within 24 hours with a quote for your custom beat.</p>
       </form>
     </div>
   </div>
@@ -558,20 +549,17 @@
     });
   });
 
-  // Pricing "Get a Quote" -> scroll to form + preselect license
+  // Pricing "Get a Quote" (Custom Beats) -> scroll to the contact form
   document.querySelectorAll('.js-buy').forEach(function(btn){
     btn.addEventListener('click', function(){
-      var license = btn.getAttribute('data-license');
-      var select = document.getElementById('f-license');
-      for (var i = 0; i < select.options.length; i++) {
-        if (select.options[i].text === license) { select.selectedIndex = i; break; }
-      }
       document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth', block: 'center' });
       document.getElementById('f-name').focus({ preventScroll: true });
     });
   });
 
-  // Beat list "Buy" -> scroll to form + drop the beat name into the message
+  // Beat list "Buy" -> go straight to checkout. The contact form is for
+  // Custom Beats requests only, so a beat with no checkout link yet falls
+  // back to email instead of the form.
   document.querySelectorAll('.js-buy-track').forEach(function(btn){
     btn.addEventListener('click', function(){
       var checkoutUrl = btn.getAttribute('data-checkout');
@@ -579,14 +567,8 @@
         window.location.href = checkoutUrl;
         return;
       }
-      // No checkout link set for this beat yet -> fall back to the contact form.
       var beat = btn.getAttribute('data-beat');
-      var message = document.getElementById('f-message');
-      if (!message.value) {
-        message.value = 'I\'d like to buy "' + beat + '". ';
-      }
-      document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth', block: 'center' });
-      document.getElementById('f-name').focus({ preventScroll: true });
+      window.location.href = 'mailto:bookings@stckjack.com?subject=' + encodeURIComponent('Buying "' + beat + '"');
     });
   });
 
