@@ -303,7 +303,7 @@
           4. data-beat        -> same name as the title (used in the email fallback below)
           5. data-checkout    -> paste a Stripe Payment Link / Gumroad / Payhip URL here
                                  for that beat. Leave it "" and Buy opens an email to
-                                 bookings@stckjack.com until you add one.
+                                 prodstckjack@gmail.com until you add one.
           6. audio preview    -> replace the base64 after "data:audio/mpeg;base64," on
                                  the <audio> tag with a short (15-20s) MP3 clip encoded
                                  as base64. In a terminal: base64 -w 0 clip.mp3
@@ -481,7 +481,7 @@
         <p>Tell me the sound you're going for, your budget, and your timeline — I'll follow up within 24 hours with a quote.</p>
         <div class="contact-detail">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-          <a href="mailto:bookings@stckjack.com">bookings@stckjack.com</a>
+          <a href="mailto:prodstckjack@gmail.com">prodstckjack@gmail.com</a>
         </div>
         <div class="contact-detail">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
@@ -593,13 +593,13 @@
         return;
       }
       var beat = btn.getAttribute('data-beat');
-      window.location.href = 'mailto:bookings@stckjack.com?subject=' + encodeURIComponent('Buying "' + beat + '"');
+      window.location.href = 'mailto:prodstckjack@gmail.com?subject=' + encodeURIComponent('Buying "' + beat + '"');
     });
   });
 
   // Contact form submission (Formspree)
   // Replace FORMSPREE_ENDPOINT with your own form endpoint from https://formspree.io
-  var FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+  var FORMSPREE_ENDPOINT = 'https://formspree.io/f/mnpallye';
 
   var form = document.getElementById('contact-form');
   var statusEl = document.getElementById('f-status');
@@ -627,7 +627,7 @@
         throw new Error('Form endpoint not configured');
       }
     }).catch(function(){
-      statusEl.textContent = 'Something went wrong sending that — email me directly at bookings@stckjack.com instead.';
+      statusEl.textContent = 'Something went wrong sending that — email me directly at prodstckjack@gmail.com instead.';
       statusEl.className = 'form-status show err';
     }).finally(function(){
       submitBtn.disabled = false;
