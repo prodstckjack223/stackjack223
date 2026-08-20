@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Stackjack Beats</title>
-<meta name="description" content="Trap, drill &amp; R&amp;B beats for artists, rappers, singers and labels. Low prices, industry-proven sound.">
+<meta name="description" content="Trap, drill &amp; R&amp;B beats for artists, rappers and singers. Low prices, industry-proven sound.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap">
 <style>
   :root{
-    --ink:#0b0b0d;
+    --ink:#000000;
     --panel:#131316;
     --card:#1a1a1e;
     --card-hover:#1f1f24;
@@ -18,14 +18,14 @@
     --paper:#f5f4f2;
     --smoke:#a8a6ac;
     --ash:#716f77;
-    --ember:#f4740a;
-    --ember-soft:rgba(244,116,10,.14);
-    --on-ember:#170d04;
+    --accent:#9333ea;
+    --accent-soft:rgba(147,51,234,.18);
+    --on-accent:#ffffff;
     --success:#3ecf8e;
     --error:#ff6a5c;
-    --disp:'Space Grotesk',system-ui,sans-serif;
-    --body:'Manrope',system-ui,sans-serif;
-    --mono:'Space Mono',ui-monospace,monospace;
+    --disp:'Poppins',system-ui,sans-serif;
+    --body:'Nunito',system-ui,sans-serif;
+    --mono:'Nunito',system-ui,sans-serif;
     --max:1180px;
   }
   *{box-sizing:border-box;}
@@ -43,18 +43,18 @@
   }
   h1,h2,h3{font-family:var(--disp); margin:0; text-wrap:balance;}
   p{margin:0;}
-  a{color:var(--ember);}
+  a{color:var(--accent);}
   img,svg{display:block; max-width:100%;}
   button{font-family:inherit;}
-  ::selection{background:var(--ember); color:var(--on-ember);}
-  :focus-visible{outline:2px solid var(--ember); outline-offset:3px; border-radius:4px;}
+  ::selection{background:var(--accent); color:var(--on-accent);}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px;}
 
   .eyebrow{
     font-family:var(--mono);
     font-size:12px;
     letter-spacing:.14em;
     text-transform:uppercase;
-    color:var(--ember);
+    color:var(--accent);
     font-weight:700;
   }
   .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
@@ -70,10 +70,10 @@
     text-decoration:none; white-space:nowrap;
     transition:transform .15s ease, filter .15s ease, border-color .15s ease, background .15s ease, color .15s ease;
   }
-  .btn-primary{background:var(--ember); color:var(--on-ember);}
+  .btn-primary{background:var(--accent); color:var(--on-accent);}
   .btn-primary:hover{filter:brightness(1.1); transform:translateY(-1px);}
   .btn-ghost{background:transparent; color:var(--paper); border-color:var(--line-strong);}
-  .btn-ghost:hover{border-color:var(--ember); color:var(--ember);}
+  .btn-ghost:hover{border-color:var(--accent); color:var(--accent);}
   .btn-sm{padding:10px 20px; font-size:13px;}
   .btn-block{width:100%;}
   .btn[disabled]{opacity:.6; cursor:not-allowed; transform:none !important;}
@@ -88,7 +88,7 @@
   .nav-inner{max-width:var(--max); margin:0 auto; width:100%; display:flex; align-items:center; justify-content:space-between;}
   .logo{font-family:var(--disp); font-weight:700; font-size:20px; letter-spacing:.03em; text-decoration:none;}
   .logo .a{color:var(--paper);}
-  .logo .b{color:var(--ember);}
+  .logo .b{color:var(--accent);}
   .nav-links{display:flex; align-items:center; gap:32px; list-style:none; margin:0; padding:0;}
   .nav-links a{color:var(--smoke); text-decoration:none; font-size:14px; font-weight:600;}
   .nav-links a:hover{color:var(--paper);}
@@ -99,15 +99,7 @@
   .hero{
     position:relative; overflow:hidden;
     padding:120px 24px 100px;
-    background-image:
-      linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-    background-size:44px 44px;
-  }
-  .hero-glow{
-    position:absolute; top:-160px; left:50%; transform:translateX(-50%);
-    width:680px; height:680px; border-radius:50%;
-    background:var(--ember); opacity:.22; filter:blur(150px); pointer-events:none;
+    background:var(--ink);
   }
   .hero-inner{position:relative; max-width:800px; margin:0 auto; text-align:center; display:flex; flex-direction:column; align-items:center; gap:26px;}
   .hero-badge{
@@ -118,7 +110,7 @@
     font-size:clamp(40px, 7.4vw, 84px); font-weight:700; line-height:1.02; letter-spacing:-.01em;
   }
   .hero-headline .q{color:var(--ash); font-size:.55em; vertical-align:.28em;}
-  .hero-headline .hit{color:var(--ember);}
+  .hero-headline .hit{color:var(--accent);}
   .hero-sub{font-size:18px; line-height:1.6; color:var(--smoke); max-width:560px;}
   .hero-ctas{display:flex; align-items:center; gap:18px; flex-wrap:wrap; justify-content:center; margin-top:6px;}
   .hero-cred{
@@ -136,7 +128,7 @@
     padding:28px 24px; display:flex; flex-direction:column; gap:16px;
   }
   .feature-icon{
-    width:44px; height:44px; border-radius:12px; background:var(--ember-soft); color:var(--ember);
+    width:44px; height:44px; border-radius:12px; background:var(--accent-soft); color:var(--accent);
     display:flex; align-items:center; justify-content:center;
   }
   .feature-card h3{font-size:17px; font-weight:700;}
@@ -149,7 +141,7 @@
     background:var(--card); border:1px solid var(--line); border-radius:16px;
     padding:30px 26px; display:flex; flex-direction:column; gap:18px;
   }
-  .testi-mark{font-family:var(--disp); font-size:36px; color:var(--ember); line-height:1;}
+  .testi-mark{font-family:var(--disp); font-size:36px; color:var(--accent); line-height:1;}
   .testi-quote{font-size:15.5px; font-style:italic; color:var(--smoke); line-height:1.6;}
   .testi-who{display:flex; flex-direction:column; gap:2px; padding-top:8px; border-top:1px solid var(--line);}
   .testi-name{font-weight:700; font-size:14px; color:var(--paper);}
@@ -161,9 +153,9 @@
     position:relative; background:var(--panel); border:1px solid var(--line); border-radius:16px;
     padding:30px 24px; display:flex; flex-direction:column; gap:22px;
   }
-  .price-card.featured{border-color:var(--ember); background:linear-gradient(180deg, var(--ember-soft), var(--panel) 60%);}
+  .price-card.featured{border-color:var(--accent); background:linear-gradient(180deg, var(--accent-soft), var(--panel) 60%);}
   .price-tag{
-    position:absolute; top:-13px; left:24px; background:var(--ember); color:var(--on-ember);
+    position:absolute; top:-13px; left:24px; background:var(--accent); color:var(--on-accent);
     font-family:var(--mono); font-size:11px; font-weight:700; letter-spacing:.06em;
     padding:5px 12px; border-radius:999px; text-transform:uppercase;
   }
@@ -173,7 +165,7 @@
   .price-amount span{font-family:var(--body); font-size:14px; color:var(--ash); font-weight:600;}
   .price-features{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px;}
   .price-features li{display:flex; align-items:flex-start; gap:9px; font-size:13.5px; color:var(--smoke); line-height:1.5;}
-  .price-features svg{flex-shrink:0; margin-top:2px; color:var(--ember);}
+  .price-features svg{flex-shrink:0; margin-top:2px; color:var(--accent);}
 
   /* faq */
   .faq-list{display:flex; flex-direction:column; gap:1px; border:1px solid var(--line); border-radius:16px; overflow:hidden;}
@@ -184,7 +176,7 @@
     display:flex; align-items:center; justify-content:space-between; gap:16px;
     padding:22px 26px; font-size:16px; font-weight:700; cursor:pointer;
   }
-  .faq-q svg{flex-shrink:0; color:var(--ember); transition:transform .2s ease;}
+  .faq-q svg{flex-shrink:0; color:var(--accent); transition:transform .2s ease;}
   .faq-item[data-open="true"] .faq-q svg{transform:rotate(45deg);}
   .faq-a{max-height:0; overflow:hidden; transition:max-height .25s ease;}
   .faq-a-inner{padding:0 26px 24px; font-size:14.5px; color:var(--smoke); line-height:1.65; max-width:74ch;}
@@ -195,14 +187,14 @@
   .contact-copy h2{font-size:clamp(26px,3.2vw,34px); margin-bottom:14px;}
   .contact-copy p{color:var(--smoke); font-size:15.5px; line-height:1.65; margin-bottom:28px; max-width:38ch;}
   .contact-detail{display:flex; align-items:center; gap:12px; font-size:14px; color:var(--smoke); margin-bottom:14px;}
-  .contact-detail svg{color:var(--ember); flex-shrink:0;}
+  .contact-detail svg{color:var(--accent); flex-shrink:0;}
   .social-row{display:flex; gap:10px; margin-top:26px;}
   .social-btn{
     width:40px; height:40px; border-radius:50%; border:1px solid var(--line-strong);
     display:flex; align-items:center; justify-content:center; color:var(--smoke); text-decoration:none;
     transition:border-color .15s ease, color .15s ease;
   }
-  .social-btn:hover{border-color:var(--ember); color:var(--ember);}
+  .social-btn:hover{border-color:var(--accent); color:var(--accent);}
 
   .form-card{background:var(--card); border:1px solid var(--line); border-radius:18px; padding:32px;}
   .field{display:flex; flex-direction:column; gap:7px; margin-bottom:18px;}
@@ -211,7 +203,7 @@
     background:var(--ink); border:1px solid var(--line-strong); border-radius:10px;
     padding:12px 14px; color:var(--paper); font-family:inherit; font-size:14.5px;
   }
-  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--ember); outline:none;}
+  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--accent); outline:none;}
   .field textarea{resize:vertical; min-height:100px;}
   .field-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
   .form-note{font-size:12.5px; color:var(--ash); margin-top:14px; line-height:1.5;}
@@ -265,7 +257,6 @@
 </nav>
 
 <header class="hero" id="top">
-  <div class="hero-glow" aria-hidden="true"></div>
   <div class="hero-inner">
     <div class="hero-badge">
       <span class="eyebrow" style="padding:0;">Producer &middot; Beatmaker &middot; Tag You Know</span>
@@ -273,7 +264,7 @@
     <h1 class="hero-headline">
       <span class="q">&ldquo;</span>Ayo Turn That Up <span class="hit">Stack</span><span class="q">&rdquo;</span>
     </h1>
-    <p class="hero-sub">Premium trap, drill &amp; R&amp;B instrumentals for artists, rappers, singers and labels. Industry-proven sound, priced so you can actually afford to cook.</p>
+    <p class="hero-sub">Premium trap, drill &amp; R&amp;B instrumentals for artists, rappers and singers. Industry-proven sound, priced so you can actually afford to cook.</p>
     <div class="hero-ctas">
       <a href="#pricing" class="btn btn-primary">Buy Beats &mdash; From $19.99</a>
       <a href="#faq" class="btn btn-ghost">Got Questions?</a>
