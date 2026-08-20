@@ -127,6 +127,23 @@
   .hero-cred b{color:var(--smoke); font-weight:700;}
   .hero-cred .dot{color:var(--line-strong);}
 
+  /* beats list */
+  .beats-list{display:flex; flex-direction:column; border:1px solid var(--line); border-radius:16px; overflow:hidden;}
+  .beat-row{
+    display:flex; align-items:center; gap:16px;
+    padding:18px 22px; background:var(--panel); border-bottom:1px solid var(--line);
+  }
+  .beat-row:last-child{border-bottom:none;}
+  .beat-row-play{
+    flex-shrink:0; width:36px; height:36px; border-radius:50%;
+    border:1.5px solid var(--line-strong); color:var(--paper);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .beat-row-info{flex:1; min-width:0; display:flex; flex-direction:column; gap:3px;}
+  .beat-row-title{font-family:var(--disp); font-weight:700; font-size:16px; color:var(--paper);}
+  .beat-row-tags{font-size:12.5px; color:var(--ash);}
+  .beat-row-price{font-family:var(--disp); font-weight:700; font-size:15px; color:var(--paper); white-space:nowrap;}
+
   /* pricing */
   .pricing-grid{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:20px;}
   .price-card{
@@ -214,6 +231,9 @@
     .pricing-grid{grid-template-columns:1fr;}
     .field-row{grid-template-columns:1fr;}
     .hero{padding:100px 20px 72px;}
+    .beat-row{flex-wrap:wrap; padding:16px 18px;}
+    .beat-row-info{min-width:140px;}
+    .beat-row-price{margin-left:auto;}
   }
 </style>
 </head>
@@ -228,12 +248,13 @@
           Stack
         </a>
       </li>
+      <li><a href="#beats">Beats</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-right">
-      <a href="#pricing" class="btn btn-primary btn-sm">Buy Beats</a>
+      <a href="#beats" class="btn btn-primary btn-sm">Buy Beats</a>
     </div>
   </div>
 </nav>
@@ -248,7 +269,7 @@
     </h1>
     <p class="hero-sub"><span class="hero-sub-lead">Premium Beats.</span><br>Industry-proven sound, priced so you can actually afford to cook.</p>
     <div class="hero-ctas">
-      <a href="#pricing" class="btn btn-primary">Buy Beats &mdash; From $20</a>
+      <a href="#beats" class="btn btn-primary">Buy Beats &mdash; From $20</a>
       <a href="#faq" class="btn btn-ghost">Got Questions?</a>
     </div>
     <div class="hero-cred">
@@ -261,6 +282,72 @@
     </div>
   </div>
 </header>
+
+<section class="section" id="beats">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Catalog</span>
+      <h2>All Beats</h2>
+      <p>Every instrumental in one list. Pick one and hit buy — license options are available at checkout.</p>
+    </div>
+    <div class="beats-list">
+      <div class="beat-row">
+        <div class="beat-row-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 7.5L18 12L9 16.5V7.5Z" fill="currentColor"/></svg></div>
+        <div class="beat-row-info">
+          <span class="beat-row-title">Glass City</span>
+          <span class="beat-row-tags">Trap &middot; 140 BPM &middot; F Minor</span>
+        </div>
+        <span class="beat-row-price">From $20</span>
+        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="Glass City">Buy</button>
+      </div>
+      <div class="beat-row">
+        <div class="beat-row-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 7.5L18 12L9 16.5V7.5Z" fill="currentColor"/></svg></div>
+        <div class="beat-row-info">
+          <span class="beat-row-title">Midnight Drive</span>
+          <span class="beat-row-tags">R&amp;B / Trap &middot; 128 BPM &middot; C Minor</span>
+        </div>
+        <span class="beat-row-price">From $20</span>
+        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="Midnight Drive">Buy</button>
+      </div>
+      <div class="beat-row">
+        <div class="beat-row-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 7.5L18 12L9 16.5V7.5Z" fill="currentColor"/></svg></div>
+        <div class="beat-row-info">
+          <span class="beat-row-title">No Ceilings</span>
+          <span class="beat-row-tags">Drill &middot; 145 BPM &middot; G Minor</span>
+        </div>
+        <span class="beat-row-price">From $20</span>
+        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="No Ceilings">Buy</button>
+      </div>
+      <div class="beat-row">
+        <div class="beat-row-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 7.5L18 12L9 16.5V7.5Z" fill="currentColor"/></svg></div>
+        <div class="beat-row-info">
+          <span class="beat-row-title">Static</span>
+          <span class="beat-row-tags">Dark Trap &middot; 150 BPM &middot; A Minor</span>
+        </div>
+        <span class="beat-row-price">From $20</span>
+        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="Static">Buy</button>
+      </div>
+      <div class="beat-row">
+        <div class="beat-row-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 7.5L18 12L9 16.5V7.5Z" fill="currentColor"/></svg></div>
+        <div class="beat-row-info">
+          <span class="beat-row-title">Halo</span>
+          <span class="beat-row-tags">Melodic Rap &middot; 132 BPM &middot; D Minor</span>
+        </div>
+        <span class="beat-row-price">From $20</span>
+        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="Halo">Buy</button>
+      </div>
+      <div class="beat-row">
+        <div class="beat-row-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 7.5L18 12L9 16.5V7.5Z" fill="currentColor"/></svg></div>
+        <div class="beat-row-info">
+          <span class="beat-row-title">Concrete</span>
+          <span class="beat-row-tags">Boom Bap &middot; 90 BPM &middot; E Minor</span>
+        </div>
+        <span class="beat-row-price">From $20</span>
+        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="Concrete">Buy</button>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="pricing">
   <div class="wrap">
@@ -282,7 +369,6 @@
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Non-exclusive rights</li>
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Instant delivery</li>
         </ul>
-        <button type="button" class="btn btn-ghost btn-block js-buy" data-license="MP3 Lease — $20">Get This Beat</button>
       </div>
 
       <div class="price-card featured">
@@ -298,7 +384,6 @@
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Non-exclusive rights</li>
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Instant delivery</li>
         </ul>
-        <button type="button" class="btn btn-primary btn-block js-buy" data-license="WAV Lease — $30">Get This Beat</button>
       </div>
 
       <div class="price-card">
@@ -461,13 +546,26 @@
     });
   });
 
-  // Pricing "Get This Beat" -> scroll to form + preselect license
+  // Pricing "Get a Quote" -> scroll to form + preselect license
   document.querySelectorAll('.js-buy').forEach(function(btn){
     btn.addEventListener('click', function(){
       var license = btn.getAttribute('data-license');
       var select = document.getElementById('f-license');
       for (var i = 0; i < select.options.length; i++) {
         if (select.options[i].text === license) { select.selectedIndex = i; break; }
+      }
+      document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      document.getElementById('f-name').focus({ preventScroll: true });
+    });
+  });
+
+  // Beat list "Buy" -> scroll to form + drop the beat name into the message
+  document.querySelectorAll('.js-buy-track').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var beat = btn.getAttribute('data-beat');
+      var message = document.getElementById('f-message');
+      if (!message.value) {
+        message.value = 'I\'d like to buy "' + beat + '". ';
       }
       document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth', block: 'center' });
       document.getElementById('f-name').focus({ preventScroll: true });
