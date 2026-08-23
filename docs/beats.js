@@ -31,6 +31,16 @@ document.querySelectorAll('.js-play').forEach(function(btn){
 // to that license's checkout link. The contact form (on the homepage) stays
 // for Custom Beats requests only -- a license with no checkout link yet
 // emails instead.
+//
+// Every MP3 lease is the same price ($20) and every WAV lease is the same
+// price ($30), so these two links are shared across all beats rather than
+// setting a data-checkout-mp3/wav per beat. Each Payment Link has a custom
+// field asking which beat the buyer is purchasing. A beat's own
+// data-checkout-mp3/wav attribute (if set) always wins over these defaults,
+// so specific beats can still be given their own unique link later.
+var DEFAULT_CHECKOUT_MP3 = 'https://buy.stripe.com/test_fZu28tcrD1mi5mvf07dwc00';
+var DEFAULT_CHECKOUT_WAV = 'https://buy.stripe.com/test_8x2eVfgHT0iecOX3hpdwc01';
+
 var buyModalOverlay = document.getElementById('buy-modal-overlay');
 var buyModalTitle = document.getElementById('buy-modal-title');
 var buyModalClose = document.getElementById('buy-modal-close');
@@ -44,8 +54,8 @@ function mailtoFor(beat, license) {
 
 function openBuyModal(btn) {
   var beat = btn.getAttribute('data-beat');
-  var mp3Url = btn.getAttribute('data-checkout-mp3');
-  var wavUrl = btn.getAttribute('data-checkout-wav');
+  var mp3Url = btn.getAttribute('data-checkout-mp3') || DEFAULT_CHECKOUT_MP3;
+  var wavUrl = btn.getAttribute('data-checkout-wav') || DEFAULT_CHECKOUT_WAV;
   buyModalTitle.textContent = beat;
   buyModalMp3.href = mp3Url || mailtoFor(beat, 'MP3 Lease');
   buyModalWav.href = wavUrl || mailtoFor(beat, 'WAV Lease');
