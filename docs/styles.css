@@ -186,6 +186,7 @@
   .buy-modal-option:hover{border-color:var(--accent); background:var(--accent-soft);}
   .buy-modal-option-name{font-weight:700; font-size:15px;}
   .buy-modal-option-price{font-family:var(--disp); font-weight:700; font-size:15px; color:var(--accent);}
+  .buy-modal-note{margin:2px 0 0; font-size:12.5px; color:var(--ash); text-align:center; line-height:1.5;}
 
   /* pricing */
   .pricing-grid{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:20px;}
