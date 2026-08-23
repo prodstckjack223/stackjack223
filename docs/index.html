@@ -60,7 +60,7 @@
     <div class="section-head">
       <span class="eyebrow">Catalog</span>
       <h2>All Beats</h2>
-      <p>Every instrumental in one list. Pick one and hit buy — license options are available at checkout.</p>
+      <p>Every instrumental in one list. Pick one and hit buy — an email with your beat download will be sent shortly after payment.</p>
     </div>
     <div class="beats-list">
       <!--
@@ -69,13 +69,12 @@
           1. beat-row-title   -> the beat's name
           2. beat-row-tags    -> genre · BPM · key
           3. beat-row-price   -> what shows in the list
-          4. data-beat        -> same name as the title (used in the license picker and
-                                 the email fallback)
-          5. data-checkout-mp3, data-checkout-wav
-                              -> paste a Stripe Payment Link / Gumroad / Payhip URL
-                                 for each license. Buy opens a picker for MP3 vs WAV --
-                                 leave either one "" and that option emails
-                                 prodstckjack@gmail.com instead until you add a link.
+          4. data-beat        -> same name as the title (used in the email fallback)
+          5. data-checkout-mp3 -> paste a Stripe Payment Link / Gumroad / Payhip URL
+                                 here. Buy goes straight there -- leave it "" and Buy
+                                 emails prodstckjack@gmail.com instead until you add
+                                 one. (WAV Lease is turned off for now -- see beats.js
+                                 if you bring it back later.)
           6. audio src        -> put a short (15-20s) MP3 preview clip in the
                                  previews/ folder next to this file, then set the
                                  <audio> tag's src to "previews/your-file-name.mp3".
@@ -93,7 +92,7 @@
           <span class="beat-row-error">Preview unavailable — check the previews/ folder</span>
         </div>
         <span class="beat-row-price">From $20</span>
-        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="Flip Cup" data-checkout-mp3="https://payhip.com/b/Ah5kY" data-checkout-wav="">Buy</button>
+        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="Flip Cup" data-checkout-mp3="https://payhip.com/b/Ah5kY">Buy</button>
       </div>
       <div class="beat-row">
         <button type="button" class="beat-row-play js-play" aria-label="Play preview of Get Lazy"><svg class="icon-play" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 7.5L18 12L9 16.5V7.5Z" fill="currentColor"/></svg><svg class="icon-pause" width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:none"><rect x="7" y="6" width="4" height="12" fill="currentColor"/><rect x="14" y="6" width="4" height="12" fill="currentColor"/></svg></button>
@@ -104,7 +103,7 @@
           <span class="beat-row-error">Preview unavailable — check the previews/ folder</span>
         </div>
         <span class="beat-row-price">From $20</span>
-        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="Get Lazy" data-checkout-mp3="" data-checkout-wav="">Buy</button>
+        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="Get Lazy" data-checkout-mp3="">Buy</button>
       </div>
       <div class="beat-row">
         <button type="button" class="beat-row-play js-play" aria-label="Play preview of Woozy"><svg class="icon-play" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 7.5L18 12L9 16.5V7.5Z" fill="currentColor"/></svg><svg class="icon-pause" width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:none"><rect x="7" y="6" width="4" height="12" fill="currentColor"/><rect x="14" y="6" width="4" height="12" fill="currentColor"/></svg></button>
@@ -115,7 +114,7 @@
           <span class="beat-row-error">Preview unavailable — check the previews/ folder</span>
         </div>
         <span class="beat-row-price">From $20</span>
-        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="Woozy" data-checkout-mp3="" data-checkout-wav="">Buy</button>
+        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="Woozy" data-checkout-mp3="">Buy</button>
       </div>
       <div class="beat-row">
         <button type="button" class="beat-row-play js-play" aria-label="Play preview of Sony"><svg class="icon-play" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 7.5L18 12L9 16.5V7.5Z" fill="currentColor"/></svg><svg class="icon-pause" width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:none"><rect x="7" y="6" width="4" height="12" fill="currentColor"/><rect x="14" y="6" width="4" height="12" fill="currentColor"/></svg></button>
@@ -126,7 +125,7 @@
           <span class="beat-row-error">Preview unavailable — check the previews/ folder</span>
         </div>
         <span class="beat-row-price">From $20</span>
-        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="Sony" data-checkout-mp3="" data-checkout-wav="">Buy</button>
+        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="Sony" data-checkout-mp3="">Buy</button>
       </div>
       <div class="beat-row">
         <button type="button" class="beat-row-play js-play" aria-label="Play preview of Wonkeeland"><svg class="icon-play" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 7.5L18 12L9 16.5V7.5Z" fill="currentColor"/></svg><svg class="icon-pause" width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:none"><rect x="7" y="6" width="4" height="12" fill="currentColor"/><rect x="14" y="6" width="4" height="12" fill="currentColor"/></svg></button>
@@ -137,7 +136,7 @@
           <span class="beat-row-error">Preview unavailable — check the previews/ folder</span>
         </div>
         <span class="beat-row-price">From $20</span>
-        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="Wonkeeland" data-checkout-mp3="" data-checkout-wav="">Buy</button>
+        <button type="button" class="btn btn-ghost btn-sm js-buy-track" data-beat="Wonkeeland" data-checkout-mp3="">Buy</button>
       </div>
       <a href="beats.html" class="beat-row beat-row-more">
         <div class="beat-row-more-icon">
@@ -151,27 +150,6 @@
     </div>
   </div>
 </section>
-
-<div class="buy-modal-overlay" id="buy-modal-overlay" hidden>
-  <div class="buy-modal" role="dialog" aria-modal="true" aria-labelledby="buy-modal-title">
-    <button type="button" class="buy-modal-close" id="buy-modal-close" aria-label="Close">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20L10.5 13.5M20 4L13.5 10.5M4 4L20 20"/></svg>
-    </button>
-    <span class="eyebrow">Choose A License</span>
-    <h3 id="buy-modal-title" class="buy-modal-title"></h3>
-    <div class="buy-modal-options">
-      <a href="#" id="buy-modal-mp3" class="buy-modal-option">
-        <span class="buy-modal-option-name">MP3 Lease</span>
-        <span class="buy-modal-option-price">$20</span>
-      </a>
-      <a href="#" id="buy-modal-wav" class="buy-modal-option">
-        <span class="buy-modal-option-name">WAV Lease</span>
-        <span class="buy-modal-option-price">$30</span>
-      </a>
-    </div>
-    <p class="buy-modal-note">An email with your beat download will be sent shortly after payment.</p>
-  </div>
-</div>
 
 <section class="section" id="pricing">
   <div class="wrap">
@@ -190,21 +168,6 @@
         <ul class="price-features">
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Untagged MP3 file</li>
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Up to 100,000 streams</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Non-exclusive rights</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Instant delivery</li>
-        </ul>
-      </div>
-
-      <div class="price-card featured">
-        <span class="price-tag">Most Popular</span>
-        <div class="price-head">
-          <h3>WAV Lease</h3>
-          <p class="note">Best sound quality, non-exclusive</p>
-        </div>
-        <div class="price-amount">$30</div>
-        <ul class="price-features">
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Untagged WAV + MP3</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Up to 500,000 streams</li>
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Non-exclusive rights</li>
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>Instant delivery</li>
         </ul>

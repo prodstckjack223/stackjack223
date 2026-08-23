@@ -27,56 +27,22 @@ document.querySelectorAll('.js-play').forEach(function(btn){
   audio.addEventListener('error', function(){ errorLabel.style.display = 'block'; });
 });
 
-// Beat list "Buy" -> open a license picker (MP3 / WAV), each going straight
-// to that license's checkout link. The contact form (on the homepage) stays
-// for Custom Beats requests only -- a license with no checkout link yet
-// emails instead.
-//
-// Every MP3 lease is the same price ($20) and every WAV lease is the same
-// price ($30), so these two links are shared across all beats rather than
-// setting a data-checkout-mp3/wav per beat. Each Payment Link has a custom
-// field asking which beat the buyer is purchasing. A beat's own
-// data-checkout-mp3/wav attribute (if set) always wins over these defaults,
-// so specific beats can still be given their own unique link later.
+// Beat list "Buy" -> go straight to checkout. WAV Lease is turned off for
+// now (no WAV files exist yet), so there's only one license and no picker
+// is needed. Every MP3 lease is the same price ($20), so this one link is
+// shared across all beats rather than setting data-checkout-mp3 per beat --
+// a beat's own data-checkout-mp3 attribute (if set) still wins over it, so
+// specific beats can still be given their own unique link later.
 var DEFAULT_CHECKOUT_MP3 = 'https://buy.stripe.com/test_fZu28tcrD1mi5mvf07dwc00';
-var DEFAULT_CHECKOUT_WAV = 'https://buy.stripe.com/test_8x2eVfgHT0iecOX3hpdwc01';
-
-var buyModalOverlay = document.getElementById('buy-modal-overlay');
-var buyModalTitle = document.getElementById('buy-modal-title');
-var buyModalClose = document.getElementById('buy-modal-close');
-var buyModalMp3 = document.getElementById('buy-modal-mp3');
-var buyModalWav = document.getElementById('buy-modal-wav');
-var buyModalLastFocused = null;
 
 function mailtoFor(beat, license) {
   return 'mailto:prodstckjack@gmail.com?subject=' + encodeURIComponent('Buying "' + beat + '" - ' + license);
 }
 
-function openBuyModal(btn) {
-  var beat = btn.getAttribute('data-beat');
-  var mp3Url = btn.getAttribute('data-checkout-mp3') || DEFAULT_CHECKOUT_MP3;
-  var wavUrl = btn.getAttribute('data-checkout-wav') || DEFAULT_CHECKOUT_WAV;
-  buyModalTitle.textContent = beat;
-  buyModalMp3.href = mp3Url || mailtoFor(beat, 'MP3 Lease');
-  buyModalWav.href = wavUrl || mailtoFor(beat, 'WAV Lease');
-  buyModalLastFocused = document.activeElement;
-  buyModalOverlay.hidden = false;
-  buyModalClose.focus();
-}
-
-function closeBuyModal() {
-  buyModalOverlay.hidden = true;
-  if (buyModalLastFocused) { buyModalLastFocused.focus(); }
-}
-
 document.querySelectorAll('.js-buy-track').forEach(function(btn){
-  btn.addEventListener('click', function(){ openBuyModal(btn); });
-});
-
-buyModalClose.addEventListener('click', closeBuyModal);
-buyModalOverlay.addEventListener('click', function(e){
-  if (e.target === buyModalOverlay) { closeBuyModal(); }
-});
-document.addEventListener('keydown', function(e){
-  if (e.key === 'Escape' && !buyModalOverlay.hidden) { closeBuyModal(); }
+  btn.addEventListener('click', function(){
+    var checkoutUrl = btn.getAttribute('data-checkout-mp3') || DEFAULT_CHECKOUT_MP3;
+    var beat = btn.getAttribute('data-beat');
+    window.location.href = checkoutUrl || mailtoFor(beat, 'MP3 Lease');
+  });
 });

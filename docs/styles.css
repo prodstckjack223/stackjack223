@@ -156,40 +156,8 @@
   }
   .back-link:hover{color:var(--accent);}
 
-  /* buy modal */
-  .buy-modal-overlay{
-    position:fixed; inset:0; z-index:100;
-    background:rgba(0,0,0,.7);
-    display:flex; align-items:center; justify-content:center;
-    padding:24px;
-  }
-  .buy-modal-overlay[hidden]{display:none;}
-  .buy-modal{
-    position:relative; width:100%; max-width:360px;
-    background:var(--panel); border:1px solid var(--line); border-radius:18px;
-    padding:32px; display:flex; flex-direction:column; gap:16px;
-  }
-  .buy-modal-close{
-    position:absolute; top:16px; right:16px; width:32px; height:32px; border-radius:50%;
-    background:transparent; border:1px solid var(--line-strong); color:var(--smoke);
-    display:flex; align-items:center; justify-content:center; cursor:pointer;
-  }
-  .buy-modal-close:hover{border-color:var(--accent); color:var(--accent);}
-  .buy-modal-title{font-size:22px; font-weight:700; margin-top:2px; padding-right:32px;}
-  .buy-modal-options{display:flex; flex-direction:column; gap:12px;}
-  .buy-modal-option{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:16px 18px; border:1px solid var(--line-strong); border-radius:12px;
-    text-decoration:none; color:var(--paper);
-    transition:border-color .15s ease, background .15s ease;
-  }
-  .buy-modal-option:hover{border-color:var(--accent); background:var(--accent-soft);}
-  .buy-modal-option-name{font-weight:700; font-size:15px;}
-  .buy-modal-option-price{font-family:var(--disp); font-weight:700; font-size:15px; color:var(--accent);}
-  .buy-modal-note{margin:2px 0 0; font-size:12.5px; color:var(--ash); text-align:center; line-height:1.5;}
-
   /* pricing */
-  .pricing-grid{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:20px;}
+  .pricing-grid{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:20px;}
   .price-card{
     position:relative; background:var(--panel); border:1px solid var(--line); border-radius:16px;
     padding:30px 24px; display:flex; flex-direction:column; gap:22px;
@@ -266,7 +234,6 @@
   footer .wrap{padding-top:0; padding-bottom:36px;}
 
   @media (max-width:980px){
-    .pricing-grid{grid-template-columns:1fr 1fr;}
     .contact-grid{grid-template-columns:1fr; gap:40px;}
   }
   @media (max-width:720px){
