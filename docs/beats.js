@@ -33,7 +33,7 @@ document.querySelectorAll('.js-play').forEach(function(btn){
 // shared across all beats rather than setting data-checkout-mp3 per beat --
 // a beat's own data-checkout-mp3 attribute (if set) still wins over it, so
 // specific beats can still be given their own unique link later.
-var DEFAULT_CHECKOUT_MP3 = 'https://buy.stripe.com/test_fZu28tcrD1mi5mvf07dwc00';
+var DEFAULT_CHECKOUT_MP3 = 'https://buy.stripe.com/fZu28tcrD1mi5mvf07dwc00';
 
 function mailtoFor(beat, license) {
   return 'mailto:prodstckjack@gmail.com?subject=' + encodeURIComponent('Buying "' + beat + '" - ' + license);
