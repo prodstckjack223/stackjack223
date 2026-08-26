@@ -46,3 +46,20 @@ document.querySelectorAll('.js-buy-track').forEach(function(btn){
     window.location.href = checkoutUrl || mailtoFor(beat, 'MP3 Lease');
   });
 });
+
+// Genre filter tabs (beats.html only -- no-op elsewhere since the buttons don't exist)
+document.querySelectorAll('.genre-filter-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.genre-filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    var genre = btn.getAttribute('data-genre');
+    document.querySelectorAll('.beat-row').forEach(function(row){
+      if (row.classList.contains('beat-row-more')) { return; }
+      var tagsEl = row.querySelector('.beat-row-tags');
+      var tagsText = tagsEl ? tagsEl.textContent : '';
+      var genres = tagsText.indexOf('·') !== -1 ? tagsText.split('·')[1].split(',').map(function(g){ return g.trim(); }) : [];
+      var matches = genre === 'all' || genres.indexOf(genre) !== -1;
+      row.classList.toggle('is-hidden', !matches);
+    });
+  });
+});
