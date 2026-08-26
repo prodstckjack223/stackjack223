@@ -156,6 +156,21 @@
   }
   .back-link:hover{color:var(--accent);}
 
+  /* subscribe picker (beats.html?mode=subscribe) */
+  .subscribe-banner{
+    position:sticky; top:65px; z-index:40; background:var(--accent); color:var(--on-accent);
+    padding:14px 24px;
+  }
+  .subscribe-banner-inner{
+    max-width:var(--max); margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+  }
+  .subscribe-banner-text{font-size:13.5px; font-weight:600;}
+  .subscribe-banner #subscribe-continue{background:var(--on-accent); color:var(--accent); border-color:var(--on-accent);}
+  .subscribe-banner #subscribe-continue:disabled{opacity:.5; cursor:not-allowed;}
+  .subscribe-banner #subscribe-continue:not(:disabled):hover{filter:brightness(.95); transform:translateY(-1px);}
+  .js-buy-track.is-picked{background:var(--accent); color:var(--on-accent); border-color:var(--accent);}
+
   /* genre filters (beats.html) */
   .genre-filters{display:flex; flex-wrap:wrap; gap:8px; margin-top:24px;}
   .genre-filter-btn{

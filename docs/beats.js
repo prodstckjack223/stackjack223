@@ -39,13 +39,61 @@ function mailtoFor(beat, license) {
   return 'mailto:prodstckjack@gmail.com?subject=' + encodeURIComponent('Buying "' + beat + '" - ' + license);
 }
 
+// Subscription beat picker (beats.html?mode=subscribe only -- the banner
+// elements don't exist on index.html or on a plain beats.html visit, so all
+// of this quietly no-ops there).
+var SUBSCRIBE_CHECKOUT_URL = 'https://buy.stripe.com/8x2eVfgHT0iecOX3hpdwc01?prefilled_promotion_code=STACK5';
+var SUBSCRIBE_PICK_COUNT = 6;
+var subscribeMode = new URLSearchParams(window.location.search).get('mode') === 'subscribe';
+var subscribeBanner = document.getElementById('subscribe-banner');
+var subscribeCountEl = document.getElementById('subscribe-count');
+var subscribeContinueBtn = document.getElementById('subscribe-continue');
+var pickedBeats = [];
+
+if (subscribeMode && subscribeBanner) {
+  subscribeBanner.style.display = '';
+}
+
+function updateSubscribeBanner() {
+  if (!subscribeCountEl) { return; }
+  subscribeCountEl.textContent = pickedBeats.length;
+  subscribeContinueBtn.disabled = pickedBeats.length !== SUBSCRIBE_PICK_COUNT;
+}
+
 document.querySelectorAll('.js-buy-track').forEach(function(btn){
+  if (subscribeMode && subscribeBanner) {
+    btn.textContent = 'Pick';
+  }
   btn.addEventListener('click', function(){
+    if (subscribeMode && subscribeBanner) {
+      var beat = btn.getAttribute('data-beat');
+      var idx = pickedBeats.indexOf(beat);
+      if (idx !== -1) {
+        pickedBeats.splice(idx, 1);
+        btn.classList.remove('is-picked');
+        btn.textContent = 'Pick';
+      } else {
+        if (pickedBeats.length >= SUBSCRIBE_PICK_COUNT) { return; }
+        pickedBeats.push(beat);
+        btn.classList.add('is-picked');
+        btn.textContent = 'Picked';
+      }
+      updateSubscribeBanner();
+      return;
+    }
     var checkoutUrl = btn.getAttribute('data-checkout-mp3') || DEFAULT_CHECKOUT_MP3;
     var beat = btn.getAttribute('data-beat');
     window.location.href = checkoutUrl || mailtoFor(beat, 'MP3 Lease');
   });
 });
+
+if (subscribeContinueBtn) {
+  subscribeContinueBtn.addEventListener('click', function(){
+    if (pickedBeats.length !== SUBSCRIBE_PICK_COUNT) { return; }
+    var ref = pickedBeats.join(', ');
+    window.location.href = SUBSCRIBE_CHECKOUT_URL + '&client_reference_id=' + encodeURIComponent(ref);
+  });
+}
 
 // Genre filter tabs (beats.html only -- no-op elsewhere since the buttons don't exist)
 document.querySelectorAll('.genre-filter-btn').forEach(function(btn){
