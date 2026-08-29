@@ -42,7 +42,11 @@ function mailtoFor(beat, license) {
 // Subscription beat picker (beats.html?mode=subscribe only -- the banner
 // elements don't exist on index.html or on a plain beats.html visit, so all
 // of this quietly no-ops there).
-var SUBSCRIBE_CHECKOUT_URL = 'https://buy.stripe.com/8x2eVfgHT0iecOX3hpdwc01?prefilled_promotion_code=STACK5';
+// Stripe Payment Links don't support auto-applying a promo code via URL
+// (that trick only works for Checkout Sessions built through the API, which
+// needs a backend we don't have) -- so STACK5 has to be typed in by the
+// customer at checkout. The banner and continue button remind them to.
+var SUBSCRIBE_CHECKOUT_URL = 'https://buy.stripe.com/8x2eVfgHT0iecOX3hpdwc01';
 var SUBSCRIBE_PICK_COUNT = 6;
 var subscribeMode = new URLSearchParams(window.location.search).get('mode') === 'subscribe';
 var subscribeBanner = document.getElementById('subscribe-banner');
@@ -91,7 +95,8 @@ if (subscribeContinueBtn) {
   subscribeContinueBtn.addEventListener('click', function(){
     if (pickedBeats.length !== SUBSCRIBE_PICK_COUNT) { return; }
     var ref = pickedBeats.join(', ');
-    window.location.href = SUBSCRIBE_CHECKOUT_URL + '&client_reference_id=' + encodeURIComponent(ref);
+    window.alert('Almost there! On the checkout page, click "Add promotion code" and enter STACK5 to get your first month for $9.99.');
+    window.location.href = SUBSCRIBE_CHECKOUT_URL + '?client_reference_id=' + encodeURIComponent(ref);
   });
 }
 
